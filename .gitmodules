@@ -1,0 +1,3 @@
+[submodule "InMoov_ws/src/ROS_Libraries"]
+	path = InMoov_ws/src/ROS_Libraries
+	url = https://github.com/DaVinciBot/ROS_Libraries.git
