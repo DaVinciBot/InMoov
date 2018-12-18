@@ -1,0 +1,2 @@
+/usr/bin/avr-ar qc libleonardo_SPI.a  CMakeFiles/leonardo_SPI.dir/usr/share/arduino/libraries/SPI/SPI.cpp.obj
+/usr/bin/avr-ranlib libleonardo_SPI.a

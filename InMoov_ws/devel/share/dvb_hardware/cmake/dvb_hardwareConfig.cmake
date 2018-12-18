@@ -67,14 +67,14 @@ set(dvb_hardware_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(dvb_hardware_SOURCE_PREFIX /home/florian/Documents/dvb_ws/InMoov/InMoov_ws/src/dvb_hardware)
-  set(dvb_hardware_DEVEL_PREFIX /home/florian/Documents/dvb_ws/InMoov/InMoov_ws/devel)
+  set(dvb_hardware_SOURCE_PREFIX /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/src/ROS_Libraries/dvb_hardware)
+  set(dvb_hardware_DEVEL_PREFIX /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel)
   set(dvb_hardware_INSTALL_PREFIX "")
   set(dvb_hardware_PREFIX ${dvb_hardware_DEVEL_PREFIX})
 else()
   set(dvb_hardware_SOURCE_PREFIX "")
   set(dvb_hardware_DEVEL_PREFIX "")
-  set(dvb_hardware_INSTALL_PREFIX /home/florian/Documents/dvb_ws/InMoov/InMoov_ws/install)
+  set(dvb_hardware_INSTALL_PREFIX /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/install)
   set(dvb_hardware_PREFIX ${dvb_hardware_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(dvb_hardware_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/florian/Documents/dvb_ws/InMoov/InMoov_ws/src/dvb_hardware/include " STREQUAL " ")
+if(NOT "/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/src/ROS_Libraries/dvb_hardware/include " STREQUAL " ")
   set(dvb_hardware_INCLUDE_DIRS "")
-  set(_include_dirs "/home/florian/Documents/dvb_ws/InMoov/InMoov_ws/src/dvb_hardware/include")
+  set(_include_dirs "/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/src/ROS_Libraries/dvb_hardware/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/florian/Documents/dvb_ws/InMoov/InMoov_ws/src/dvb_hardware/include
         message(FATAL_ERROR "Project 'dvb_hardware' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'dvb_hardware' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/florian/Documents/dvb_ws/InMoov/InMoov_ws/src/dvb_hardware/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'dvb_hardware' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/src/ROS_Libraries/dvb_hardware/${idir}'.  ${_report}")
     endif()
     _list_append_unique(dvb_hardware_INCLUDE_DIRS ${include})
   endforeach()
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/florian/Documents/dvb_ws/InMoov/InMoov_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel/lib;/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

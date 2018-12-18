@@ -1,0 +1,8 @@
+prefix=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel
+
+Name: Face_Recognition
+Description: Description of Face_Recognition
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel/lib 
+Requires: 

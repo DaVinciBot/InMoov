@@ -1,0 +1,8 @@
+prefix=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel
+
+Name: dvb_arduino
+Description: Description of dvb_arduino
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel/lib 
+Requires: 

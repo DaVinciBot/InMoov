@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/usr/share/arduino/libraries/SPI/SPI.cpp
+pins_arduino.h
+/usr/share/arduino/libraries/SPI/pins_arduino.h
+SPI.h
+/usr/share/arduino/libraries/SPI/SPI.h
+
+/usr/share/arduino/libraries/SPI/SPI.h
+stdio.h
+-
+Arduino.h
+-
+avr/pgmspace.h
+-
+
