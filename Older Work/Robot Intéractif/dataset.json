@@ -1,0 +1,31 @@
+{
+    "Lever le bras":
+    {
+        "first_triggering":"Peux-tu lever le bras",
+        "second_triggering":"Leve le bras",
+        "third_triggering":"Pointes-moi du doigt"
+    },
+    "Présentes-toi":
+    {
+        "first_triggering":"Comment t'appelles tu ?",
+        "second_triggering":"Qui es-tu ?",
+        "third_triggering":"Quel est ton nom ?",
+        "fourth_triggering":"Donnes moi des informations sur toi",
+        "fifth_triggering":"Décris-toi"
+    },
+    "Présentes l'école":
+    {
+        "first_triggering":"Présentes ton école",
+        "second_triggering":"Qu'est ce que le pôle Léonard de Vinci",
+        "third_triggering":"Dans quelle école es-tu ?",
+        "fouth_triggering":"Ou est ce que tu étudies ?"
+    },
+    "Donner l'heure":
+    {
+        "first_triggering":"Quelle heure est-il ?",
+        "second_triggering":"Donnes moi l'heure",
+        "third_triggering":"il est quelle heure en Chine",
+        "fourth_triggering":"Dis moi l'heure"
+    }
+    
+}

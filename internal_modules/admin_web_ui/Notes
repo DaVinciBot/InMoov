@@ -1,0 +1,11 @@
+curl https://192.168.0.32:5000/api -k -d '{"api_token":"","part":"head","move":"turn_left"}' 
+
+flask run -h 172.16.0.100 -p 5000 : OK pas de SSL
+python InMoov-WebServer.py : OK, SSL OK
+gunicorn --certfile ./config/ssl_cert.pem --keyfile ./config/ssl_key.pem -b 0.0.0.0:5000 InMoov_WebServer:app -w 1 -k eventlet : OK, pas de SSL CURL
+
+eventlet permet de faire tout fonctionner ensemble proprement. C'est assez réactif.
+
+Si on part sur du gunicorn, dans ce cas on ajoutera au robot aussi nginx et ca sera qqch de beaucoup plus lourd etc
+
+
