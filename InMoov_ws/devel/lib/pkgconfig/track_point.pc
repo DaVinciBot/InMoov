@@ -1,8 +1,0 @@
-prefix=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel
-
-Name: track_point
-Description: Description of track_point
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel/lib 
-Requires: 

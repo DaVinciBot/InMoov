@@ -1,2 +1,0 @@
-
--DCATKIN_DEVEL_PREFIX=/home/florian/Documents/InMoov/Software/Neural_backbone/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/florian/Documents/InMoov/Software/Neural_backbone/catkin_ws/install -G Unix Makefiles
