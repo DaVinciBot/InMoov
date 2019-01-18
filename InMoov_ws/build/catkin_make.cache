@@ -1,2 +1,2 @@
-ROS_Libraries/dvb_control:ROS_Libraries/dvb_hardware:ROS_Libraries/dvb_map:ROS_Libraries/dvb_navigation:ROS_Libraries/dvb_robot:ROS_Libraries/dvb_spinner:ROS_Libraries/dvb_vision/Face_Recognition:ROS_Libraries/dvb_vision/camera:ROS_Libraries/dvb_vision/video_stream_opencv:robot
+ROS_Libraries/dvb_control:ROS_Libraries/dvb_hardware:ROS_Libraries/dvb_map:ROS_Libraries/dvb_navigation:ROS_Libraries/dvb_robot:ROS_Libraries/dvb_spinner:ROS_Libraries/dvb_vision/Face_Recognition:ROS_Libraries/dvb_vision/camera:robot
 -DCATKIN_DEVEL_PREFIX=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel -DCMAKE_INSTALL_PREFIX=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/install -G Unix Makefiles

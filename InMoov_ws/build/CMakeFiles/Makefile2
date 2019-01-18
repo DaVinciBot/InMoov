@@ -2453,61 +2453,6 @@ clean: ROS_Libraries/dvb_navigation/CMakeFiles/tf2_msgs_generate_messages_py.dir
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory ROS_Libraries/dvb_vision/video_stream_opencv
-
-# Convenience name for "all" pass in the directory.
-ROS_Libraries/dvb_vision/video_stream_opencv/all: ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/all
-
-.PHONY : ROS_Libraries/dvb_vision/video_stream_opencv/all
-
-# Convenience name for "clean" pass in the directory.
-ROS_Libraries/dvb_vision/video_stream_opencv/clean: ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/clean
-
-.PHONY : ROS_Libraries/dvb_vision/video_stream_opencv/clean
-
-# Convenience name for "preinstall" pass in the directory.
-ROS_Libraries/dvb_vision/video_stream_opencv/preinstall:
-
-.PHONY : ROS_Libraries/dvb_vision/video_stream_opencv/preinstall
-
-#=============================================================================
-# Target rules for target ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir
-
-# All Build rule for target.
-ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/all:
-	$(MAKE) -f ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/build.make ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/depend
-	$(MAKE) -f ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/build.make ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/CMakeFiles --progress-num=33,34 "Built target video_stream"
-.PHONY : ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/all
-
-# Include target in all.
-all: ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/CMakeFiles 0
-.PHONY : ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/rule
-
-# Convenience name for target.
-video_stream: ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/rule
-
-.PHONY : video_stream
-
-# clean rule for target.
-ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/clean:
-	$(MAKE) -f ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/build.make ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/clean
-.PHONY : ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/clean
-
-# clean rule for target.
-clean: ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

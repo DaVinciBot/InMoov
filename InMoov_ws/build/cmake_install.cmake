@@ -126,7 +126,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_robot/cmake_install.cmake")
   include("/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_map/cmake_install.cmake")
   include("/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_navigation/cmake_install.cmake")
-  include("/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/cmake_install.cmake")
 
 endif()
 

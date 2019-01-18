@@ -148,11 +148,3 @@
 /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_navigation/CMakeFiles/tf2_msgs_generate_messages_lisp.dir
 /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_navigation/CMakeFiles/rebuild_cache.dir
 /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_navigation/CMakeFiles/tf2_msgs_generate_messages_py.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/list_install_components.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/install.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/edit_cache.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/rebuild_cache.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/test.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/install/strip.dir
-/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build/ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/install/local.dir

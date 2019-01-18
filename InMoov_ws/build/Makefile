@@ -1023,19 +1023,6 @@ tf2_msgs_generate_messages_py/fast:
 	$(MAKE) -f ROS_Libraries/dvb_navigation/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make ROS_Libraries/dvb_navigation/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
 .PHONY : tf2_msgs_generate_messages_py/fast
 
-#=============================================================================
-# Target rules for targets named video_stream
-
-# Build rule for target.
-video_stream: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 video_stream
-.PHONY : video_stream
-
-# fast build rule for target.
-video_stream/fast:
-	$(MAKE) -f ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/build.make ROS_Libraries/dvb_vision/video_stream_opencv/CMakeFiles/video_stream.dir/build
-.PHONY : video_stream/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1115,7 +1102,6 @@ help:
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_py"
-	@echo "... video_stream"
 .PHONY : help
 
 
