@@ -56,16 +56,6 @@ CMAKE_BINARY_DIR = /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/bu
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -89,16 +79,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target test
+test/fast: test
 
-.PHONY : install/strip/fast
+.PHONY : test/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -111,16 +101,26 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : test/fast
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -165,19 +165,243 @@ depend:
 	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+robot/CMakeFiles/robot_generate_messages_py.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_generate_messages_py.dir/rule
+.PHONY : robot/CMakeFiles/robot_generate_messages_py.dir/rule
+
+# Convenience name for target.
+robot_generate_messages_py: robot/CMakeFiles/robot_generate_messages_py.dir/rule
+
+.PHONY : robot_generate_messages_py
+
+# fast build rule for target.
+robot_generate_messages_py/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_generate_messages_py.dir/build.make robot/CMakeFiles/robot_generate_messages_py.dir/build
+.PHONY : robot_generate_messages_py/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_gennodejs.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_gennodejs.dir/rule
+.PHONY : robot/CMakeFiles/robot_gennodejs.dir/rule
+
+# Convenience name for target.
+robot_gennodejs: robot/CMakeFiles/robot_gennodejs.dir/rule
+
+.PHONY : robot_gennodejs
+
+# fast build rule for target.
+robot_gennodejs/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_gennodejs.dir/build.make robot/CMakeFiles/robot_gennodejs.dir/build
+.PHONY : robot_gennodejs/fast
+
+# Convenience name for target.
+robot/CMakeFiles/_robot_generate_messages_check_deps_test.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/_robot_generate_messages_check_deps_test.dir/rule
+.PHONY : robot/CMakeFiles/_robot_generate_messages_check_deps_test.dir/rule
+
+# Convenience name for target.
+_robot_generate_messages_check_deps_test: robot/CMakeFiles/_robot_generate_messages_check_deps_test.dir/rule
+
+.PHONY : _robot_generate_messages_check_deps_test
+
+# fast build rule for target.
+_robot_generate_messages_check_deps_test/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/_robot_generate_messages_check_deps_test.dir/build.make robot/CMakeFiles/_robot_generate_messages_check_deps_test.dir/build
+.PHONY : _robot_generate_messages_check_deps_test/fast
+
+# Convenience name for target.
+robot/CMakeFiles/_catkin_empty_exported_target.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : robot/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+# Convenience name for target.
+_catkin_empty_exported_target: robot/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/_catkin_empty_exported_target.dir/build.make robot/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
+
+# Convenience name for target.
+robot/CMakeFiles/_robot_generate_messages_check_deps_Servo_Control.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/_robot_generate_messages_check_deps_Servo_Control.dir/rule
+.PHONY : robot/CMakeFiles/_robot_generate_messages_check_deps_Servo_Control.dir/rule
+
+# Convenience name for target.
+_robot_generate_messages_check_deps_Servo_Control: robot/CMakeFiles/_robot_generate_messages_check_deps_Servo_Control.dir/rule
+
+.PHONY : _robot_generate_messages_check_deps_Servo_Control
+
+# fast build rule for target.
+_robot_generate_messages_check_deps_Servo_Control/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/_robot_generate_messages_check_deps_Servo_Control.dir/build.make robot/CMakeFiles/_robot_generate_messages_check_deps_Servo_Control.dir/build
+.PHONY : _robot_generate_messages_check_deps_Servo_Control/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_gencpp.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_gencpp.dir/rule
+.PHONY : robot/CMakeFiles/robot_gencpp.dir/rule
+
+# Convenience name for target.
+robot_gencpp: robot/CMakeFiles/robot_gencpp.dir/rule
+
+.PHONY : robot_gencpp
+
+# fast build rule for target.
+robot_gencpp/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_gencpp.dir/build.make robot/CMakeFiles/robot_gencpp.dir/build
+.PHONY : robot_gencpp/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_generate_messages_cpp.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_generate_messages_cpp.dir/rule
+.PHONY : robot/CMakeFiles/robot_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+robot_generate_messages_cpp: robot/CMakeFiles/robot_generate_messages_cpp.dir/rule
+
+.PHONY : robot_generate_messages_cpp
+
+# fast build rule for target.
+robot_generate_messages_cpp/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_generate_messages_cpp.dir/build.make robot/CMakeFiles/robot_generate_messages_cpp.dir/build
+.PHONY : robot_generate_messages_cpp/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_generate_messages_eus.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_generate_messages_eus.dir/rule
+.PHONY : robot/CMakeFiles/robot_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+robot_generate_messages_eus: robot/CMakeFiles/robot_generate_messages_eus.dir/rule
+
+.PHONY : robot_generate_messages_eus
+
+# fast build rule for target.
+robot_generate_messages_eus/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_generate_messages_eus.dir/build.make robot/CMakeFiles/robot_generate_messages_eus.dir/build
+.PHONY : robot_generate_messages_eus/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_geneus.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_geneus.dir/rule
+.PHONY : robot/CMakeFiles/robot_geneus.dir/rule
+
+# Convenience name for target.
+robot_geneus: robot/CMakeFiles/robot_geneus.dir/rule
+
+.PHONY : robot_geneus
+
+# fast build rule for target.
+robot_geneus/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_geneus.dir/build.make robot/CMakeFiles/robot_geneus.dir/build
+.PHONY : robot_geneus/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_generate_messages.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_generate_messages.dir/rule
+.PHONY : robot/CMakeFiles/robot_generate_messages.dir/rule
+
+# Convenience name for target.
+robot_generate_messages: robot/CMakeFiles/robot_generate_messages.dir/rule
+
+.PHONY : robot_generate_messages
+
+# fast build rule for target.
+robot_generate_messages/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_generate_messages.dir/build.make robot/CMakeFiles/robot_generate_messages.dir/build
+.PHONY : robot_generate_messages/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_generate_messages_lisp.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_generate_messages_lisp.dir/rule
+.PHONY : robot/CMakeFiles/robot_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+robot_generate_messages_lisp: robot/CMakeFiles/robot_generate_messages_lisp.dir/rule
+
+.PHONY : robot_generate_messages_lisp
+
+# fast build rule for target.
+robot_generate_messages_lisp/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_generate_messages_lisp.dir/build.make robot/CMakeFiles/robot_generate_messages_lisp.dir/build
+.PHONY : robot_generate_messages_lisp/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_genpy.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_genpy.dir/rule
+.PHONY : robot/CMakeFiles/robot_genpy.dir/rule
+
+# Convenience name for target.
+robot_genpy: robot/CMakeFiles/robot_genpy.dir/rule
+
+.PHONY : robot_genpy
+
+# fast build rule for target.
+robot_genpy/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_genpy.dir/build.make robot/CMakeFiles/robot_genpy.dir/build
+.PHONY : robot_genpy/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_generate_messages_nodejs.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_generate_messages_nodejs.dir/rule
+.PHONY : robot/CMakeFiles/robot_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+robot_generate_messages_nodejs: robot/CMakeFiles/robot_generate_messages_nodejs.dir/rule
+
+.PHONY : robot_generate_messages_nodejs
+
+# fast build rule for target.
+robot_generate_messages_nodejs/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_generate_messages_nodejs.dir/build.make robot/CMakeFiles/robot_generate_messages_nodejs.dir/build
+.PHONY : robot_generate_messages_nodejs/fast
+
+# Convenience name for target.
+robot/CMakeFiles/robot_genlisp.dir/rule:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_genlisp.dir/rule
+.PHONY : robot/CMakeFiles/robot_genlisp.dir/rule
+
+# Convenience name for target.
+robot_genlisp: robot/CMakeFiles/robot_genlisp.dir/rule
+
+.PHONY : robot_genlisp
+
+# fast build rule for target.
+robot_genlisp/fast:
+	cd /home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/build && $(MAKE) -f robot/CMakeFiles/robot_genlisp.dir/build.make robot/CMakeFiles/robot_genlisp.dir/build
+.PHONY : robot_genlisp/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... test"
+	@echo "... install/local"
+	@echo "... list_install_components"
+	@echo "... install/strip"
+	@echo "... robot_generate_messages_py"
+	@echo "... robot_gennodejs"
+	@echo "... _robot_generate_messages_check_deps_test"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... _robot_generate_messages_check_deps_Servo_Control"
+	@echo "... robot_gencpp"
+	@echo "... robot_generate_messages_cpp"
+	@echo "... robot_generate_messages_eus"
+	@echo "... robot_geneus"
+	@echo "... robot_generate_messages"
+	@echo "... robot_generate_messages_lisp"
 	@echo "... edit_cache"
+	@echo "... robot_genpy"
+	@echo "... robot_generate_messages_nodejs"
+	@echo "... robot_genlisp"
 .PHONY : help
 
 

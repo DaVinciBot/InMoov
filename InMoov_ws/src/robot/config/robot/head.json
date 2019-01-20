@@ -1,4 +1,5 @@
 {
+	"robot": {
 	"head": {
 		"neck": {
 			"translation": {
@@ -55,4 +56,5 @@
 			}
 		}
 	}
+}
 }

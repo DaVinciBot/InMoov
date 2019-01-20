@@ -3,6 +3,6 @@ prefix=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/install
 Name: robot
 Description: Description of robot
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/install/include
 Libs: -L/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/install/lib 
 Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel
+
+Name: servo_control_msg
+Description: Description of servo_control_msg
+Version: 0.0.0
+Cflags: -I/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel/include
+Libs: -L/home/florian/Documents/dvb_ws/DaVinciBot-InMoov/InMoov_ws/devel/lib -lservo_control_msg
+Requires: message_runtime message_generation rospy
