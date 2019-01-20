@@ -1,38 +1,47 @@
 #!/usr/bin/env python
 
-import json
-import datetime
+#db.addons.createIndex({ "name" : 1 }, { unique : true })
 
-from pymongo import MongoClient
+from pymongo import MongoClient, errors
 
-def connect_to_db():
-    client = MongoClient('mongodb://localhost:27017/')
+from addon import AddOn
 
-    db = client.inmoov
+class InMoov_DB:
+    def __init__(self):
+        self.connect_to_db()
 
-    return db
+    def connect_to_db(self):
+        client = MongoClient('mongodb://localhost:27017/')
 
-def get_all_users():
-    db = connect_to_db()
+        db = client.inmoov
 
-    return db.users.find({})
+        self.addons = db.addons
 
-def is_token_exists(token):
-    db = connect_to_db()
+    def create_addon(self, name, email):
+        addon = AddOn(name, email)
 
-    if db.users.find_one({"token": token}):
-        return True
+        collection = self.addons
 
-    else:
-        return False
+        try:
+            collection.insert(addon.__dict__)
+            return self.get_addon_token(name)
+        except errors.DuplicateKeyError as e:
+            print e
 
-def print_all_users():
-    for user in get_all_users():
-        print user
+    def get_addon_token(self, name):
+        collection = self.addons
 
+        return collection.find_one({"name": name}, {"token": 1, "_id": 0})
 
-#print_all_users()
+    def get_all_addons(self):
+        return self.addons.find({})
 
-#print is_token_exists("424ccf1fe53adeeb01953d09818a5a717f3f17a0221d5bc5c03cad68ee1c6881")
+    def is_addon_token_exists(self, token):
+        if self.addons.find_one({"token": token}):
+            return True
+        else:
+            return False
 
-
+    def print_all_addons(self):
+        for addon in self.get_all_addons():
+            print addon
