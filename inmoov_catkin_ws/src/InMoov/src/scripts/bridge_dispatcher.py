@@ -1,24 +1,20 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 #-*- coding: utf-8 -*-
 
 import rospy,time,json
 from std_msgs.msg import String
 
 #Les callback
-def callback(msg):
-        rospy.loginfo('Move request received : ' + msg.data)
+def dispatcher_callback(msg):
+        rospy.loginfo('[Dispatcher] Move request : ' + msg.data)
 
 #Les subscribers
-rospy.Subscriber('master_topic', String, callback)
-
-#Le code
-def Master():
-	rospy.init_node('master_node', anonymous=True)
-	rospy.loginfo("[MASTER] Démarrage de ROS...")
+rospy.Subscriber('dispatcher_topic', String, dispatcher_callback)
 
 if __name__ == '__main__':
 	try:
-		Master()
+		rospy.init_node('dispatcher_node', anonymous=True)
+		rospy.loginfo("[Dispatcher] Starting ...")
 		rospy.spin()
 	except rospy.ROSInterruptException:
 		pass
