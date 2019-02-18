@@ -1,2 +1,0 @@
-actionlib:inmoov
--DCMAKE_BUILD_TYPE=Release -G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/pi/DVB_InMoov/inmoov_catkin_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/opt/ros/kinetic
