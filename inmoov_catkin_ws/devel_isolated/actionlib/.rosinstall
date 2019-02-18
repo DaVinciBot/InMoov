@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pi/DVB_InMoov/inmoov_catkin_ws/devel_isolated/actionlib/setup.sh
