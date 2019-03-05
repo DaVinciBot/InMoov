@@ -6,8 +6,8 @@ from pymongo import MongoClient, errors
 
 import json
 
-from addon import AddOn
-from control import Control
+from addon.addon import AddOn
+from control.control import Control
 
 class InMoov_DB:
     def __init__(self):

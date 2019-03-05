@@ -2,7 +2,7 @@
 
 import json
 
-class Path_Generator_Json:
+class Path_Generator:
     def __init__(self, js, path):
         self.path = path.split("/")
         self.json = js
@@ -20,7 +20,7 @@ class Path_Generator_Json:
                 json[path[index]] = {}
                 self.generate_json(json, path, index)
 
-class Value_Finder_Json:
+class Value_Finder:
     def __init__(self, js, path):
         self.value = None
         self.path = path.split("/")
@@ -32,7 +32,7 @@ class Value_Finder_Json:
             js = js[key]
         self.value = js
 
-class Path_Finder_Json:
+class Path_Finder:
     def __init__(self, json):
         self.json = json
         self.path = []
@@ -59,12 +59,12 @@ class Path_Finder_Json:
 
         return string
 
-class Json_Writer:
+class Writer:
     def __init__(self, js, json_file_path):
         self.file = open(json_file_path, 'w')
         self.file.write(json.dumps(js, indent=4))
 
-class Json_Reader:
+class Reader:
     def __init__(self, json_file_path):
         self.file = open(json_file_path, 'r')
         self.js = json.load(self.file)

@@ -1,4 +1,7 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+
+#import sys
+#sys.path.append('~/Documents/dvb_ws/DaVinciBot-InMoov/inmoov_catkin_ws/src/inmoov/src/scripts')
 
 import rospy
 import roslib; roslib.load_manifest('inmoov')
@@ -10,12 +13,12 @@ from std_msgs.msg import UInt8
 import actionlib
 from inmoov.msg import *
 
-from configs import Config
-from json_utils import Value_Finder_Json, Json_Reader
+from configs.configs import Config
+from utils.json_utils import Value_Finder, Reader
 
-from inmoov_db import InMoov_DB
-from addon import AddOn
-from control import Control
+from inmoov_db.inmoov_db import InMoov_DB
+from addon.addon import AddOn
+from control.control import Control
 
 class InMoov_Controller_Client:
     def __init__(self):
@@ -48,13 +51,13 @@ class InMoov_Controller_Client:
         return self.client.get_result()
 
     def send_goal_from_file(self):
-        self.control_json = Json_Reader(self.config.pkg + "/inmoov/config/robot/inmoov_control.json").js
+        self.control_json = Reader(self.config.pkg + "/inmoov/control/inmoov_control.json").js
         self.load_data()
         self.send_goal()
 
     def load_data(self):
         for i in range(0, len(self.topics)):
-            data = Value_Finder_Json(self.control_json, self.topics[i]).value
+            data = Value_Finder(self.control_json, self.topics[i]).value
             msg = UInt8(data)
             self.data.insert(i, msg)
 
