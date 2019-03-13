@@ -1,6 +1,8 @@
 !/internal_modules/admin_web_ui/config/.gitkeep
 !/inmoov_catkin_ws/devel/.gitkeep
 !/inmoov_catkin_ws/build/.gitkeep
+!/db/.gitkeep
+/db
 /inmoov_catkin_ws/build/
 /inmoov_catkin_ws/devel/
 /internal_modules/admin_web_ui/config/

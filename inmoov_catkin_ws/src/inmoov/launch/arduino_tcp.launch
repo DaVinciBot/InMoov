@@ -1,0 +1,4 @@
+<launch>
+    <node name="shoulder" pkg="rosserial_python" type="serial_node.py" args="tcp 11412" output="screen"/>
+    <node name="scapula" pkg="rosserial_python" type="serial_node.py" args="tcp 11411" output="screen"/>
+</launch>
