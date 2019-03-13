@@ -45,22 +45,7 @@ Here is all the WebServer related stuff
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-FLASK_ENV = -1
-
-if os.getenv("FLASK_ENV") == "development":
-	FLASK_ENV = 0
-	app.config.update(DB_ADDRESS = "localhost",
-	DB_NAME = "inmoov",
-	DB_AUTHSOURCE = "admin",
-	DB_PORT = 27017,
-	DB_USERNAME = "admin",
-	DB_PASSWORD = "K8PZrEGaKbWPRrqGIo7b")
-elif os.getenv("FLASK_ENV") == "production":
-	FLASK_ENV = 1
-	app.config.from_pyfile('./config/App.cfg', silent=True)
-else:
-	print("Error : You must set FLASK_ENV variable to 'production' or 'development'")
-	exit(0)
+app.config.from_pyfile('./config/App.cfg', silent=True)
 
 db = MongoClient(app.config['DB_ADDRESS'],
 port=app.config['DB_PORT'],
@@ -75,13 +60,6 @@ SUBSCRIBERS_LIST = []
 @app.before_first_request
 def before_first_request():
 	update_subscribers(SUBSCRIBERS_LIST)
-
-#Redirection a utiliser une fois que l'on est sur
-#@app.before_request
-#def before_request():
-#    if request.url.startswith('http://'):
-#        url = request.url.replace('https://', 'https://', 1)
-#        return redirect(url, code=301)
 
 @app.errorhandler(Exception)
 def handle_error(e):
@@ -189,7 +167,4 @@ def logout():
 
 ##Si on lance direct le programme via python
 if __name__ == '__main__':
-	if FLASK_ENV == 1:
-		eventlet.wsgi.server(eventlet.wrap_ssl(eventlet.listen(('0.0.0.0',5000)),certfile='./config/certificate.pem',keyfile='./config/key.pem',server_side=True),app)
-	elif FLASK_ENV == 0:
 		eventlet.wsgi.server(eventlet.listen(('0.0.0.0',5000)),app)

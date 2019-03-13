@@ -4,11 +4,10 @@ Prod ou dev ?
 
 flask run -h 172.16.0.100 -p 5000 --no-reload : OK pas de SSL
 python InMoov-WebServer.py : OK, SSL OK
-gunicorn --certfile ./config/ssl_cert.pem --keyfile ./config/ssl_key.pem -b 0.0.0.0:5000 InMoov_WebServer:app -w 1 -k eventlet : OK, pas de SSL CURL
 
-eventlet permet de faire tout fonctionner ensemble proprement. C'est assez réactif.
 
-Si on part sur du gunicorn, dans ce cas on ajoutera au robot aussi nginx et ca sera qqch de beaucoup plus lourd etc
+gunicorn -b 127.0.0.1:5000 InMoov_WebServer:app -w 2 -k eventlet
+
 
 mongod --dbpath . --auth
 mongo -u "admin" -p "K8PZrEGaKbWPRrqGIo7b" --authenticationDatabase "admin"

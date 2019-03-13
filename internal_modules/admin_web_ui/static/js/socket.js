@@ -19,7 +19,7 @@ function CreateNewWindow(name)
    td.appendChild(new_elem);
    
    last_tr = container.childNodes[container.childNodes.length - 1];
-   if(last_tr.childElementCount >= 3) {
+   if(last_tr.childElementCount >= 2) {
    container.appendChild(document.createElement('tr')); }
    
    container.childNodes[container.childNodes.length - 1].appendChild(td);

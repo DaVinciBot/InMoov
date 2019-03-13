@@ -64,4 +64,4 @@ inmoov = InMoov_Controller_Client()
 
 inmoov.send_goal_from_file()
 
-rospy.spin()
+#rospy.spin()
