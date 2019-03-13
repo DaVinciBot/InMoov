@@ -15,34 +15,40 @@
 <p>
 Here goes a webpage where we can monitor topics through websocket.
 <br><br>
-We can also send data to topics from here (through websocket too).
-<br><br>
-<label><b>Example Topic : </b></label><br>
-<textarea id="text_output" rows="5" cols="60" disabled readonly style="resize: none; text-align: center">NOTHING</textarea>
-<!-- document.getElementById('text_output').innerHTML = document.getElementById('text_output').innerHTML + "\nMsg 2"-->
 </p>
+<table>
+<tbody id="text_output"><tr></tr></tbody>
+</table>
+
 <br><br><br><br>
 <a href="{{ url_for('logout') }}" >
 <button type="button">Log out !</button>
 </a>
+<br><br>
+<form action="{{ url_for('manage_power') }}">
+  <input hidden name="control" value="shutdown">
+  <input type="submit" value="Shutdown !">
+</form>
+<br><br>                                                                   
+<form action="{{ url_for('manage_power') }}">                                                 
+  <input hidden name="control" value="reboot">
+<input type="submit" value="Reboot !"> 
+</form>
+<br><br>                                                                                      
+<form action="{{ url_for('manage_ssh') }}">                                     
+  <input hidden name="state" value="on">
+<input type="submit" value="Activate SSH !"> 
+</form> 
+<br><br>                                       
+<form action="{{ url_for('manage_ssh') }}">                                         
+  <input hidden name="state" value="off">                                                    
+  <input type="submit" value="Disable SSH !">  
+</form>
 <br><br><br><br><br><br>
 <p>&copy; 2018 <a href="http://davincibot.org" >DaVinciBot</a> - Equipe PI<sup>2</sup>/PING</p>
 </center>
 
-<script> 
-socket = io.connect(location.protocol + "//" + location.hostname + ":" + location.port + '/websocket');
-
-socket.on('connect', function () { console.log("Connected to websocket !!"); });
-
-socket.on('pongws', function (msg) {console.log("Received ping reply !" + msg); });
-    
-socket.on('updatetp', function (msg) {
-   console.log("Received from server : " + msg);    
-   document.getElementById('text_output').innerHTML = document.getElementById('text_output').innerHTML + '\n' + msg;
-     }); 
-
-socket.emit('pingws', 'ping');                                                                             
-</script>
+<script src="{{ url_for('static', filename='js/socket.js') }}"></script> 
 
 </body>
 </html>

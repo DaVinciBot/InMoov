@@ -4,21 +4,9 @@
 
 TODO :
 
-## InMoov Control API :
-
-- ROSBridge (adapt + %cents)
-
-## InMoov Admin Web UI :
-
-- NGINX with HTTPS redirect
-- Remove API
-- Add topics monitoring + logs + change password + manage access tokens
-- Gunicorn ? Docker ?
-- CSS
-- systemd/autorun
-- Validate everything
-
-## Future idea
-
-- Add sensors and a fifth interface with MQTT
-- Add possibility to add robot part from admin UI
+#Setup reverse proxy nginx avec SSL + config web serveur sans SSL                                         
+#Bouger le robot                                                                                          
+#finir l'autostart (boote ROS via launcher, boot serveur web + nginx, boote websocket api)                
+#dev un client de base                                                                                    
+#Comment marche le inmoov_controller_client  ?? a joindre au API websocket                                
+#ajout de la vérif des tokens + mise en place des tokens depuis interfacce web 

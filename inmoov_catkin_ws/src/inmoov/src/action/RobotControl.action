@@ -1,8 +1,0 @@
-#goal definition
-string[] topics
-std_msgs/UInt8[] data
----
-bool success
----
-#feedback
-uint8 progress
