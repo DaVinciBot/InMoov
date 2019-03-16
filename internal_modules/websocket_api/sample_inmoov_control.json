@@ -135,5 +135,5 @@
                 }
             }
         }
-    }
+    }, "addon_token" : "default"
 }
