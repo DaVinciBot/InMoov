@@ -13,7 +13,7 @@
 <h2>Welcome to InMoov's Admin Panel</h2>
 <br>
 <p>
-Here goes a webpage where we can monitor topics through websocket.
+Here you can monitor topics through websocket.
 <br><br>
 </p>
 <table>
@@ -25,30 +25,22 @@ Here goes a webpage where we can monitor topics through websocket.
 <button type="button">Log out !</button>
 </a>
 <br><br>
-<form action="{{ url_for('manage_power') }}">
-  <input hidden name="control" value="shutdown">
-  <input type="submit" value="Shutdown !">
-</form>
+<a href="{{ url_for('manage_addons') }}" >
+<button type="button"> Manage Addons</button>
+</a>
+<br><br>
+<button type="button" onclick="manage_power('shutdown')">Shutdown ! </button>
 <br><br>                                                                   
-<form action="{{ url_for('manage_power') }}">                                                 
-  <input hidden name="control" value="reboot">
-<input type="submit" value="Reboot !"> 
-</form>
+<button type="button" onclick="manage_power('reboot')">Reboot ! </button>
 <br><br>                                                                                      
-<form action="{{ url_for('manage_ssh') }}">                                     
-  <input hidden name="state" value="on">
-<input type="submit" value="Activate SSH !"> 
-</form> 
+<button type="button" onclick="manage_ssh('on')">Activate SSH </button>
 <br><br>                                       
-<form action="{{ url_for('manage_ssh') }}">                                         
-  <input hidden name="state" value="off">                                                    
-  <input type="submit" value="Disable SSH !">  
-</form>
+<button type="button" onclick="manage_ssh('off')">Disable SSH </button>
 <br><br><br><br><br><br>
 <p>&copy; 2018 <a href="http://davincibot.org" >DaVinciBot</a> - Equipe PI<sup>2</sup>/PING</p>
 </center>
 
 <script src="{{ url_for('static', filename='js/socket.js') }}"></script> 
-
+<script src="{{ url_for('static', filename='js/services.js') }}"></script>
 </body>
 </html>

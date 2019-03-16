@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import os
+import string, random
 import datetime
 
 class AddOn:
@@ -8,4 +8,4 @@ class AddOn:
         self.name = name
         self.email = email
         self.created_date = datetime.datetime.now().isoformat()
-        self.token = os.urandom(32).encode('hex')
+        self.token = ''.join(random.choice(string.letters + string.digits) for _ in range(64))

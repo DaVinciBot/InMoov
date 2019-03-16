@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+<title>InMoov - Addons Manager</title>
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+
+<body>
+<center>
+<h2>Welcome to InMoov's Addons Manager</h2>
+<br>
+<p>
+Here you can monitor InMoov's Addons and create new ones.
+<br><br>
+</p>
+<table>
+    <thead style="background-color: #333;  color: #fff;">
+        <tr>
+            <th >Name</th>
+          <th >Owner's email</th>
+	<th>Creation date</th>
+	<th>Token</th>
+       <th></th>
+        </tr>
+    </thead>
+    <tbody id="table_body">
+        
+
+    </tbody>
+</table>
+<button type="button" onclick="refresh_addon()">Refresh</button>
+<br><br>
+
+<form id="new_form">
+  Addon name:
+  <input type="text" name="name">&nbsp; &nbsp;
+  Addon owner email:
+  <input type="text" name="email">
+  <button type="button" onclick="create_addon()">Add a new addon</button>
+</form>
+<br><br><br><br>
+<a href="{{ url_for('logout') }}" >
+<button type="button">Log out !</button>
+</a>
+<br><br>
+<a href="{{ url_for('admin') }}" >
+<button type="button"> Admin panel</button>
+</a>
+<br><br><br><br><br><br>
+<p>&copy; 2018 <a href="http://davincibot.org" >DaVinciBot</a> - Equipe PI<sup>2</sup>/PING</p>
+</center>
+
+<script src="{{ url_for('static', filename='js/addons.js') }}"></script> 
+
+</body>
+</html>

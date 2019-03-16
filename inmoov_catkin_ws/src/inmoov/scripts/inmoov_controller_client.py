@@ -21,8 +21,6 @@ class InMoov_Controller_Client:
     def __init__(self):
         self.db = InMoov_DB()
 
-        self.addon = self.db.get_addon('Hello_World')
-
         self.config = Config()
 	#initialisation du control_json par defaut avec des 0
         self.control_json = self.config.get_control_json()
@@ -41,9 +39,9 @@ class InMoov_Controller_Client:
     def update_control_json(self, new_control_json):
         self.control_json = new_control_json
 
-    def send_goal(self):
+    def send_goal(self, addon_emetteur):
 
-        self.db.create_control(self.control_json, self.addon)
+        self.db.create_control(self.control_json, addon_emetteur)
 
         self.goal.topics = self.topics
         self.goal.data = self.data

@@ -7,6 +7,10 @@ import hashlib, rospy, logging, sys, os, eventlet, random, string, json
 from std_msgs.msg import String
 from pymongo import MongoClient
 from roslib import message as roslib_message
+from bson.json_util import dumps
+
+sys.path.append('/home/InMoov/inmoov_catkin_ws/src/inmoov/scripts')
+from inmoov_db.inmoov_db import InMoov_DB
 
 eventlet.monkey_patch()
 
@@ -47,6 +51,8 @@ socketio = SocketIO(app)
 
 app.config.from_pyfile('./config/App.cfg', silent=True)
 
+inmoovdb = InMoov_DB()
+
 db = MongoClient(app.config['DB_ADDRESS'],
 port=app.config['DB_PORT'],
 username=app.config['DB_USERNAME'],
@@ -76,6 +82,39 @@ def admin():
 	result = db.sessions.find_one({"nonce":cookie})
 	if result is not None:
 		return (render_template('admin.html'),200)
+	else:
+		resp = make_response(redirect(url_for('login')))
+		resp.set_cookie('inmoov_session', '', expires=0)
+		return (resp,302)
+
+@app.route('/admin/addons', methods=['GET'], strict_slashes=False)
+def manage_addons():
+	cookie = request.cookies.get("inmoov_session")
+	result = db.sessions.find_one({"nonce":cookie})
+	if result is not None:
+		return (render_template('addons.html'), 200)
+	else:
+		resp = make_response(redirect(url_for('login')))
+		resp.set_cookie('inmoov_session', '', expires=0)
+		return (resp,302)
+
+@app.route('/admin/addons/manage', methods=['GET','POST', 'DELETE'], strict_slashes=False)
+def addon_edit():
+	cookie = request.cookies.get("inmoov_session")
+	result = db.sessions.find_one({"nonce":cookie})
+	if result is not None:
+		if request.method == 'GET':
+			return dumps({'msg':list(inmoovdb.get_all_addons()), 'code':'success'})
+		elif request.method == 'POST':
+			if request.form["name"] != "" and request.form['email'] != "" and inmoovdb.create_addon(request.form['name'], request.form['email']):
+				return jsonify({'msg':'Successfully created !', 'code':'success'})
+			else:
+				return jsonify({'msg':'Addon failed to create : maybe this name already exists', 'code':'error'})
+		else:
+			if request.args['token'] != "" and inmoovdb.delete_addon(request.args['token']):
+				return jsonify({'msg':'Successfully deleted !', 'code':'success'})
+			else:
+				return jsonify({'msg':"We can't delete this addon", 'code':'error'})
 	else:
 		resp = make_response(redirect(url_for('login')))
 		resp.set_cookie('inmoov_session', '', expires=0)
