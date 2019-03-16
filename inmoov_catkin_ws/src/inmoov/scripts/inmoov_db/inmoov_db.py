@@ -24,12 +24,22 @@ class InMoov_DB:
         addon = AddOn(name, email)
 
         collection = self.addons
-
+	if collection.find_one({'name':name}) is not None:
+		return False
         try:
             collection.insert(addon.__dict__)
-            return self.get_addon_token(name)
+            return self.get_addon_by_name(name)
         except errors.DuplicateKeyError as e:
             print(e)
+            return False
+
+    def delete_addon(self, token):
+        collection = self.addons
+        try:
+            collection.delete_one({'token':token})
+            return True
+        except:
+            return False
 
     def create_control(self, control_json, addon):
         control = Control(control_json, addon)
@@ -41,15 +51,15 @@ class InMoov_DB:
         except errors.DuplicateKeyError as e:
             print(e)
 
-    def get_addon(self, name):
+    def get_addon_by_name(self, name):
         collection = self.addons
 
         return collection.find_one({"name": name})
 
-    def get_addon_token(self, name):
+    def get_addon_by_token(self, token):
         collection = self.addons
 
-        return collection.find_one({"name": name}, {"token": 1, "_id": 0})
+        return collection.find_one({"token": token})
 
     def get_all_addons(self):
         return self.addons.find({})

@@ -17,3 +17,8 @@ export FLASK_ENV = "production"
 #systemd mongodb
 
 #comment placer les fichiers SECRETS ?
+TODO:
+
+COntinuer les services.
+Ajouter les ajouts de DB sur le web
+Verifier le token dans la DB avec websocket

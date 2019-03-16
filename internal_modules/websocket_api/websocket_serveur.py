@@ -28,34 +28,38 @@ class WSServer:
 		received = await websocket.recv()
 		rospy.loginfo('[Websocket API] Received message !')
 		try:
-			data = json.loads(received)
-			rospy.loginfo(data)
-			if self.is_valid_message(data) == False:
-				sent = '{"status":"failed", "msg":"Data is not a valid control_json"}'
-			elif self.is_authorized_addon(data['api_token']) == False:
-				sent = '{"status":"failed", "msg":"Unauthorized API token"}'
+			received_json = json.loads(received)
+			rospy.loginfo("[Websocket API] Message %s" % str(received_json))
+			if set(received_json.keys()) != set(['addon_token', 'action', 'argument']) or received_json['action'] not in ['move','info']:
+				sent = '{"status":"failed", "msg":"Invalid request"}'
+			elif self.is_authorized_addon(received_json['addon_token']) == False:
+				sent = '{"status":"failed", "msg":"Unauthorized Addon token"}'
+			elif received_json['action'] == 'move':
+				data = received_json['argument']
+				if self.is_valid_control_json(data) == False:
+					sent = '{"status":"failed", "msg":"Input is not a valid control_json"}'
+				else:
+					addon = self.client.db.get_addon_by_token(received_json['addon_token'])
+					self.client.send_goal(addon['name'])
+					self.client.update_control_json(data)
+					sent = '{"status":"OK", "msg":"Move goal reached"}'
 			else:
-				self.client.send_goal()
-				self.client.update_control_json(data)
-				sent = '{"status":"OK", "msg":"Well received"}'
+				sent = '{"status":"OK", "msg":%s}' % json.dumps(self.client.get_control_json())
 		except Exception as e:
 			rospy.loginfo("[Websocket API] Error : " + str(e))
 			sent = '{"status":"failed", "msg":"Data is not JSON"}'
 		await websocket.send(sent)
 		rospy.loginfo("[Websocket API] Response : %s" % sent)
 
-	def is_authorized_addon(self, api_token):
-		if api_token == 'yolo':
-			return True
-		return False
+	def is_authorized_addon(self, addon_token):
+		return self.client.db.is_addon_token_exists(addon_token)
 
 	def get_reference_paths(self):
 		return list(get_all_paths(self.client.get_control_json()))
 
-	def is_valid_message(self, message):
-		ref_paths = self.get_reference_paths() #.append(('api_token',))
+	def is_valid_control_json(self, message):
+		ref_paths = self.get_reference_paths()
 		new_paths = list(get_all_paths(message))
-		ref_paths.append(('api_token',))
 		if set(ref_paths) == set(new_paths):
 			return True
 		else:
