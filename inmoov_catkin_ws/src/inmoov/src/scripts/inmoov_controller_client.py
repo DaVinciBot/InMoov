@@ -61,10 +61,14 @@ class InMoov_Controller_Client:
             msg = UInt8(data)
             self.data.insert(i, msg)
 
-rospy.init_node('test')
+def client():
+    inmoov = InMoov_Controller_Client()
 
-inmoov = InMoov_Controller_Client()
+    #send file / only for tests
+    inmoov.send_goal_from_file()
 
-inmoov.send_goal_from_file()
+if __name__ == "__main__":
+    rospy.init_node('inmoov_controllerr_client')
 
-rospy.spin()
+    if not rospy.is_shutdown():
+        client()

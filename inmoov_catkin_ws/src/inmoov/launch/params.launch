@@ -1,9 +1,0 @@
-<launch>
-    <rosparam command="load" file="$(find robot)/config/robot/robot.yaml"/>
-
-    <group ns="inmoov">
-        <rosparam command="load" file="$(find robot)/config/robot/head.yaml"/>
-        <rosparam command="load" file="$(find robot)/config/robot/body.yaml"/>
-        <rosparam command="load" file="$(find robot)/config/robot/arm.yaml"/>    
-    </group>
-</launch>

@@ -24,7 +24,6 @@ class RobotControl(object):
 
         for i in range(0, len(self.topics)):
             print("Publishing : " + self.topics[i] + " => " + str(self.data[i]))
-            #print ("Publishing : " + self.topics[i] + " => " + self.data[i])
             pub = rospy.Publisher(self.topics[i] + "/data", UInt8, queue_size=10)
             pub.publish(self.data[i])
             rospy.sleep(0.1)
@@ -32,7 +31,7 @@ class RobotControl(object):
         self._as.set_succeeded(self.result)
         
 if __name__ == '__main__':
-    rospy.init_node('inmoov')
+    rospy.init_node('inmoov_controller_server')
     server = RobotControl(rospy.get_name())
     rospy.spin()
 

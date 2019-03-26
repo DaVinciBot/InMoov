@@ -9,6 +9,15 @@ import roslib; roslib.load_manifest('inmoov')
 
 from utils.json_utils import *
 
+#####################
+# ROBOT CONFIG
+# read json config files
+# store all servos infos
+# get all control node ("control": 1)
+# get all monitor node for websockets purpose ("monitor": 1)
+# store all publishers
+#####################
+
 class Config:
     def __init__(self):
         self.pkg = rospkg.get_ros_paths()[1]
