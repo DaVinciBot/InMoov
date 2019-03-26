@@ -3,6 +3,7 @@
 source /opt/ros/kinetic/setup.bash && source /home/pi/DaVinciBot-InMoov/inmoov_catkin_ws/devel/setup.bash
 mongod --dbpath /home/pi/DaVinciBot-InMoov/db --auth &
 export FLASK_ENV = "production"
+gunicorn -b 127.0.0.1:5000 InMoov_WebServer:app -w 1 -k eventlet --chdir /home/InMoov/internal_modules/admin_web_ui/
 
 #Bouger le robot
 #finir l'autostart (boote ROS via launcher, boot serveur web + nginx, boote websocket api)
