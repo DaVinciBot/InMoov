@@ -24,8 +24,8 @@ class InMoov_DB:
         addon = AddOn(name, email)
 
         collection = self.addons
-	if collection.find_one({'name':name}) is not None:
-		return False
+        if collection.find_one({'name':name}) is not None:
+            return False
         try:
             collection.insert(addon.__dict__)
             return self.get_addon_by_name(name)

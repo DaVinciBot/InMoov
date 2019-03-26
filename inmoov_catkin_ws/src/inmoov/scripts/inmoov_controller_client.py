@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#coding: utf-8
 
 import rospy
 import roslib; roslib.load_manifest('inmoov')
@@ -29,15 +30,20 @@ class InMoov_Controller_Client:
         self.load_data()
 
         self.client = actionlib.SimpleActionClient('inmoov', RobotControlAction)
+
         self.goal = RobotControlGoal()
 
         self.client.wait_for_server()
+#	print('test_init')
+
 
     def get_control_json(self):
         return self.control_json
 
     def update_control_json(self, new_control_json):
+        print(new_control_json)
         self.control_json = new_control_json
+        self.load_data()
 
     def send_goal(self, addon_emetteur):
 
@@ -56,7 +62,7 @@ class InMoov_Controller_Client:
 	#control json d'exemple pour tester
         self.control_json = Reader(self.config.pkg + "/inmoov/control/inmoov_control.json").js
         self.load_data()
-        self.send_goal()
+        self.send_goal("test")
 
     #associé a la methode de test
     def load_data(self):
@@ -65,10 +71,11 @@ class InMoov_Controller_Client:
             msg = UInt8(data)
             self.data.insert(i, msg)
 
-#rospy.init_node('test')
-
-#inmoov = InMoov_Controller_Client()
-
-#inmoov.send_goal_from_file()
-
-#rospy.spin()
+if __name__ == '__main__':
+    rospy.init_node('test')
+    print('test3')
+    inmoov = InMoov_Controller_Client()
+    print('test')
+    inmoov.send_goal_from_file()
+    print('test2')
+    rospy.spin()

@@ -40,8 +40,8 @@ class WSServer:
 					sent = '{"status":"failed", "msg":"Input is not a valid control_json"}'
 				else:
 					addon = self.client.db.get_addon_by_token(received_json['addon_token'])
-					self.client.send_goal(addon['name'])
 					self.client.update_control_json(data)
+					self.client.send_goal(addon['name'])
 					sent = '{"status":"OK", "msg":"Move goal reached"}'
 			else:
 				sent = '{"status":"OK", "msg":%s}' % json.dumps(self.client.get_control_json())

@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-import rospy
-import roslib;
+import rospy, sys
+import roslib
 
 from std_msgs.msg import UInt8
 
 import actionlib
-
 from inmoov.msg import *
 
 class RobotControl(object):
@@ -19,13 +18,15 @@ class RobotControl(object):
         self.result = RobotControlResult()
       
     def execute_cb(self, goal):
+        print(goal)
         self.topics = goal.topics
         self.data = goal.data
 
+
         for i in range(0, len(self.topics)):
             print("Publishing : " + self.topics[i] + " => " + str(self.data[i]))
-            #print ("Publishing : " + self.topics[i] + " => " + self.data[i])
             pub = rospy.Publisher(self.topics[i] + "/data", UInt8, queue_size=10)
+            print(self.data[i])
             pub.publish(self.data[i])
             rospy.sleep(0.1)
 
