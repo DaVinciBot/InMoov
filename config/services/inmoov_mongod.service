@@ -1,14 +1,13 @@
 [Unit]
-Description=MongoDB Database Server
-After=multi-user.target
+Description=InMoov MongoDB Database Server
 Documentation=https://docs.mongodb.org/manual
+PartOf=inmoov_main.service
+After=inmoov_main.service
 
 [Service]
 User=mongod
 Group=mongod
-Environment="OPTIONS=-f /etc/mongod.conf"
-EnvironmentFile=-/etc/sysconfig/mongod
-ExecStart=/usr/bin/mongod $OPTIONS
+ExecStart=/usr/bin/mongod --dbpath /inmoov/data/db --auth
 ExecStartPre=/usr/bin/mkdir -p /var/run/mongodb
 ExecStartPre=/usr/bin/chown mongod:mongod /var/run/mongodb
 ExecStartPre=/usr/bin/chmod 0755 /var/run/mongodb
@@ -34,4 +33,4 @@ TasksAccounting=false
 # http://docs.mongodb.org/manual/reference/ulimit/#recommended-settings
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=inmoov_main.service
