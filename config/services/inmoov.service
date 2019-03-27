@@ -1,0 +1,12 @@
+[Unit]
+Description=Main InMoov Service
+
+[Service]
+Type=oneshot
+
+ExecStart=/bin/true
+
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
