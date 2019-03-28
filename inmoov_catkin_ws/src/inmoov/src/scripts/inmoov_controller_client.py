@@ -32,10 +32,11 @@ class InMoov_Controller_Client:
         self.data = []
         self.load_data()
 
-        self.client = actionlib.SimpleActionClient('inmoov', RobotControlAction)
+        self.client = actionlib.SimpleActionClient('inmoov_controller_server', RobotControlAction)
         self.goal = RobotControlGoal()
 
         self.client.wait_for_server()
+        print('ok')
 
     def send_goal(self):
 
@@ -52,6 +53,7 @@ class InMoov_Controller_Client:
 
     def send_goal_from_file(self):
         self.control_json = Reader(self.config.pkg + "/inmoov/control/inmoov_control.json").js
+        
         self.load_data()
         self.send_goal()
 
@@ -70,5 +72,8 @@ def client():
 if __name__ == "__main__":
     rospy.init_node('inmoov_controllerr_client')
 
-    if not rospy.is_shutdown():
-        client()
+    print("Starting controller action client")
+    client()
+
+    #if not rospy.is_shutdown():
+        #client()

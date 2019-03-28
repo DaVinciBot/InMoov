@@ -13,10 +13,10 @@
 /****************************************/
 
 #define SERVO_PIN 9
-#define SERVO_ANGLE_MAX 120
-#define SERVO_ANGLE_MIN 80
+#define SERVO_ANGLE_MAX 150
+#define SERVO_ANGLE_MIN 0
 
-#define TOPIC_NAME "/robot/arm/left/scapula/servo/data"
+#define TOPIC_NAME "/robot/arm/left/scapula/servo/angle"
 
 // TCP/IP settings
 IPAddress ip(10, 42, 0, 4);

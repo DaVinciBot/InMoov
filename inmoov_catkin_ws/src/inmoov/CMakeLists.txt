@@ -16,6 +16,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+find_package(OpenCV3 REQUIRED)
+
 ## Generate actions in the 'action' folder
 add_action_files(
    FILES

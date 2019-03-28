@@ -86,13 +86,13 @@
             "left": {
                 "shoulder": {
                     "servo": {
-                        "angle": 0
+                        "angle": 80
                     }
                 }, 
                 "scapula": {
                     "servo": {
-                        "angle": 0
-                    }
+                        "angle": 90
+                }
                 }, 
                 "muscle": {
                     "servo": {
