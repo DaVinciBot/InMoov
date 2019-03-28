@@ -14,7 +14,7 @@ class InMoov_DB:
         self.connect_to_db()
 
     def connect_to_db(self):
-        client = MongoClient('localhost',port=27017,username="admin",password="K8PZrEGaKbWPRrqGIo7b",authSource='admin')
+        client = MongoClient('localhost',port=27017)
         db = client.inmoov
 
         self.addons = db.addons

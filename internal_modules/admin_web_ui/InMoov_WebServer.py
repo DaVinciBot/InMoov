@@ -53,11 +53,7 @@ app.config.from_pyfile('./config/App.cfg', silent=True)
 
 inmoovdb = InMoov_DB()
 
-db = MongoClient(app.config['DB_ADDRESS'],
-port=app.config['DB_PORT'],
-username=app.config['DB_USERNAME'],
-password=app.config['DB_PASSWORD'],
-authSource=app.config['DB_AUTHSOURCE'])[app.config['DB_NAME']]
+db = MongoClient(app.config['DB_ADDRESS'], port=app.config['DB_PORT'])[app.config['DB_NAME']]
 
 db.sessions.delete_many({})
 

@@ -10,4 +10,4 @@ gunicorn -b 127.0.0.1:5000 InMoov_WebServer:app -w 2 -k eventlet
 
 
 mongod --dbpath . --auth
-mongo -u "admin" -p "K8PZrEGaKbWPRrqGIo7b" --authenticationDatabase "admin"
+mongo

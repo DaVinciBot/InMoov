@@ -1,0 +1,17 @@
+[Unit]
+Description=InMoov ROS
+#Ajouter ca sous forme de launcher
+#
+#
+PartOf=inmoov.service
+
+After=inmoov.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/bash -c 'alias srcpkg='source /opt/ros/kinetic/setup.bash && source /home/InMoov/inmoov_catkin_ws/devel/setup.bash'
+ExecStart=/opt/ros/kinetic/bin/roscore
+Restart=on-failure
+
+[Install]
+WantedBy=inmoov.service
