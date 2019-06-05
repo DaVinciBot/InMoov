@@ -7,10 +7,10 @@ After=inmoov_main.service
 [Service]
 User=mongod
 Group=mongod
-ExecStart=/usr/bin/mongod --dbpath /inmoov/databases --auth --bind_ip 127.0.0.1
-ExecStartPre=/usr/bin/mkdir -p /var/run/mongodb
-ExecStartPre=/usr/bin/chown mongod:mongod /var/run/mongodb
-ExecStartPre=/usr/bin/chmod 0755 /var/run/mongodb
+ExecStart=/bin/mongod --dbpath /inmoov/databases --bind_ip 127.0.0.1 --logpath /var/log/inmoov_mongod.log --logappend --pidfilepath /var/run/mongodb/mongod.pid --fork
+ExecStartPre=/bin/mkdir -p /var/run/mongodb
+ExecStartPre=/bin/chown mongod:mongod /var/run/mongodb
+ExecStartPre=/bin/chmod 0755 /var/run/mongodb
 PermissionsStartOnly=true
 PIDFile=/var/run/mongodb/mongod.pid
 Type=forking

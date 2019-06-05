@@ -9,7 +9,7 @@ from pymongo import MongoClient
 from roslib import message as roslib_message
 from bson.json_util import dumps
 
-sys.path.append('/home/InMoov/inmoov_catkin_ws/src/inmoov/scripts')
+sys.path.append('/inmoov/catkin_ws/src/inmoov/scripts')
 from inmoov_db.inmoov_db import InMoov_DB
 
 eventlet.monkey_patch()
@@ -122,10 +122,10 @@ def manage_power():
 	result = db.sessions.find_one({"nonce":cookie})
 	if result is not None:
 		if request.args.get('control') == "shutdown":
-			os.system('shutdown -h')
+			os.system('sudo shutdown -h')
 			return jsonify({'msg':'Shuting down in 60 seconds', 'code':'success'})
 		elif request.args.get('control') == "reboot":
-			os.system('shutdown -r')
+			os.system('sudo shutdown -r')
 			return jsonify({'msg':'Rebooting in 60 seconds', 'code':'success'})
 		else:
 			return jsonify({'msg':'You must specify the "control" parameter', 'code':'error'})
@@ -139,10 +139,10 @@ def manage_ssh():
 	result = db.sessions.find_one({"nonce":cookie})
 	if result is not None:
 		if request.args.get('state') == "on":
-			os.system('service ssh start')
+			os.system('sudo service ssh start')
 			return jsonify({'msg':'Successfully started SSH', 'code':'success'})
 		elif request.args.get('state') == "off":
-			os.system('service ssh stop')
+			os.system('sudo service ssh stop')
 			return jsonify({'msg':'Successfully stopped SSH', 'code':'success'})
 		else:
 			return jsonify({'msg':'You must specify the "state" parameter', 'code':'error'})

@@ -4,7 +4,6 @@
 import rospy, json, websockets, asyncio, sys
 from std_msgs.msg import String
 
-sys.path.append('/home/InMoov/inmoov_catkin_ws/src/inmoov/scripts')
 from inmoov_controller_client import InMoov_Controller_Client
 
 def get_all_paths(tree, cur=()):
@@ -66,12 +65,12 @@ class WSServer:
 			return False
 
 
-if __name__ == '__main__':
-	try:
-		rospy.init_node('websocket_server_node', anonymous=True, disable_signals=True)
-		rospy.loginfo("[Websocket API] Starting ...")
-		ws = WSServer('0.0.0.0', 8765)
-		asyncio.get_event_loop().run_until_complete(ws.start())
-		asyncio.get_event_loop().run_forever()
-	except rospy.ROSInterruptException:
-		pass
+#if __name__ == '__main__':
+#	try:
+#		rospy.init_node('websocket_server_node', anonymous=True, disable_signals=True)
+#		rospy.loginfo("[Websocket API] Starting ...")
+#		ws = WSServer('0.0.0.0', 8765)
+#		asyncio.get_event_loop().run_until_complete(ws.start())
+#		asyncio.get_event_loop().run_forever()
+#	except rospy.ROSInterruptException:
+#		pass

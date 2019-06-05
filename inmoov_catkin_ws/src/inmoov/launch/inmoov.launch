@@ -1,0 +1,4 @@
+<launch>
+<node pkg="inmoov" type="inmoov_controller_server.py" name="inmoov_controller_server" output="log"/>
+<node pkg="inmoov" type="websocket_server.py" name="websocket_server" output="log"/>
+</launch>

@@ -12,9 +12,8 @@
 #
 [Unit]
 Description=A high performance web server and a reverse proxy server
-After=network.target
-After=inmoov.service
-After=inmoov-ros.service
+PartOf=inmoov_main.service
+After=inmoov_main.service
 
 [Service]
 Type=forking
@@ -27,4 +26,4 @@ TimeoutStopSec=5
 KillMode=mixed
 
 [Install]
-WantedBy=inmoov.service
+WantedBy=inmoov_main.service

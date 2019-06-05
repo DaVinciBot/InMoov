@@ -1,3 +1,0 @@
-<launch>
-<node pkg="inmoov" type="inmoov_controller_server.py" name="inmoov_controller_server" output="screen"/>
-</launch>

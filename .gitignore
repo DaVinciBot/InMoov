@@ -1,6 +1,5 @@
 !/inmoov_catkin_ws/devel/.gitkeep
 !/inmoov_catkin_ws/build/.gitkeep
-!/db/.gitkeep
 /inmoov_catkin_ws/build/
 /inmoov_catkin_ws/devel/
 /db/

@@ -1,0 +1,15 @@
+[Unit]
+Description=InMoov ROS Service
+PartOf=inmoov_main.service
+After=inmoov_main.service
+Restart=on-abort
+
+[Service]
+User=ros
+Group=ros
+Environment=ROS_LOG_DIR=/home/ros/log
+Environment=ROS_HOME=/home/ros
+ExecStart=/bin/bash -c 'source /opt/ros/kinetic/setup.bash && source /inmoov/catkin_ws/devel/setup.bash && /opt/ros/kinetic/bin/roslaunch inmoov inmoov.launch'
+
+[Install]
+WantedBy=inmoov_main.service

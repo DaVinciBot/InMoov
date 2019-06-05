@@ -29,7 +29,7 @@ class InMoov_Controller_Client:
         self.data = []
         self.load_data()
 
-        self.client = actionlib.SimpleActionClient('inmoov', RobotControlAction)
+        self.client = actionlib.SimpleActionClient('inmoov_controller_server', RobotControlAction)
 
         self.goal = RobotControlGoal()
 
