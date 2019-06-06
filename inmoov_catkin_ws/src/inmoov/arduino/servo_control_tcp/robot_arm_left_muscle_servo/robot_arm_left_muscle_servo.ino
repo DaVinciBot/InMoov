@@ -21,7 +21,7 @@
 // TCP/IP settings
 IPAddress ip(10, 42, 0, 4);
 uint16_t serverPort = 11413;
-byte mac[] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFD };
+byte mac[] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFC, 0xFF };
 
 /****************************************/
 /***************** END ******************/

@@ -19,9 +19,9 @@
 #define TOPIC_NAME "YOUR TOPIC"
 
 // TCP/IP settings
-IPAddress ip(10, 42, 0, 3);
-uint16_t serverPort = 11411;
-byte mac[] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+IPAddress ip(10, 42, 0, 3); //IP unique
+uint16_t serverPort = 11411; //port unique
+byte mac[] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF }; //MAC ADDRESS UNIQUE != FFFFFFFFFFFF != FFFFFFFFFFFE
 
 /****************************************/
 /***************** END ******************/
@@ -36,7 +36,7 @@ Servo servo_;
 uint8_t angle_;
 
 // Server settings
-IPAddress server(10, 42, 0, 1);
+IPAddress server(10, 42, 0, 232); //IP du SERVEUR
 
 void onServoMsg( const std_msgs::UInt8& msg){
   angle_ = msg.data;
