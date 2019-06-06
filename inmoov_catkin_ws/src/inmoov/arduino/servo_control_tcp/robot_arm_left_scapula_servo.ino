@@ -19,7 +19,7 @@
 #define TOPIC_NAME "/robot/arm/left/scapula/servo/angle"
 
 // TCP/IP settings
-IPAddress ip(10, 42, 0, 4);
+IPAddress ip(10, 42, 0, 3);
 uint16_t serverPort = 11412;
 byte mac[] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE };
 
@@ -36,7 +36,7 @@ Servo servo_;
 uint8_t angle_;
 
 // Server settings
-IPAddress server(10, 42, 0, 1);
+IPAddress server(10, 42, 0, 232);
 
 void onServoMsg( const std_msgs::UInt8& msg){
   angle_ = msg.data;

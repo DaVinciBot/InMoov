@@ -36,7 +36,7 @@ Servo servo_;
 uint8_t angle_;
 
 // Server settings
-IPAddress server(10, 42, 0, 1);
+IPAddress server(10, 42, 0, 232);
 
 void onServoMsg( const std_msgs::UInt8& msg){
   angle_ = msg.data;
