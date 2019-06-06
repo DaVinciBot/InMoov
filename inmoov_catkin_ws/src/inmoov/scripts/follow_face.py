@@ -23,7 +23,7 @@ from queue import Queue
 
 from std_msgs.msg import UInt8
 
-faces_dir = os.getcwd() + "/src/inmoov/faces/"
+faces_dir = os.getcwd() + "/../faces/"
 
 def knownFaces():
     """Load a list of each person of your dataset ***** Replace Pi2/tmp_dataset by your path to your dataset"""
